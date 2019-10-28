@@ -1,9 +1,10 @@
 import React from 'react';
+import Latest from './Latest';
 
 function App() {
   return (
     <div>
-      <p>Hello World</p>
+      <Latest />
     </div>
   );
 }
