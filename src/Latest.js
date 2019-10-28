@@ -8,6 +8,7 @@ const Latest = () => {
   const isInitial = useRef(true);
 
   useEffect(() => {
+    // Checks if it's the initial load and gets latest comic is so
     if (isInitial.current) {
       isInitial.current = false;
       fetchLatest();
