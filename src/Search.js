@@ -33,7 +33,7 @@ const Search = () => {
   }
 
   return (
-    <div>
+    <div className="box">
       <form onSubmit={submitNum}>
         <input type="number" min="1" max="2220" className="searchInput" />
         <input type="submit" className="searchSubmit" />
