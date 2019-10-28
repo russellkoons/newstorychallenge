@@ -26,12 +26,10 @@ const Search = () => {
     setNumber(document.getElementsByClassName('searchInput')[0].value);
   }
 
+  let error;
+
   if (hasError) {
-    return (
-      <div>
-        <p>Something went wrong...</p>
-      </div>
-    )
+    error = 'Something went wrong...'
   }
 
   return (
@@ -41,7 +39,8 @@ const Search = () => {
         <input type="submit" className="searchSubmit" />
       </form>
       <h1>{comic.safe_title}</h1>
-      <img src={comic.img} className="latestImage" alt={comic.title} title={comic.alt} />
+      <img src={comic.img} className="searchImage" alt={comic.title} title={comic.alt} />
+      <span>{error}</span>
     </div>
   )
 }

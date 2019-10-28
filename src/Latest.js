@@ -15,18 +15,17 @@ const Latest = () => {
     fetchData();
   }, []);
 
+  let error;
+
   if (hasError) {
-    return (
-      <div>
-        <p>Something went wrong...</p>
-      </div>
-    )
+    error = 'Something went wrong...'
   }
 
   return ( 
     <div>
       <h1>{comic.safe_title}</h1>
       <img src={comic.img} className="latestImage" alt={comic.title} title={comic.alt} />
+      <span>{error}</span>
     </div>
   );
 }
