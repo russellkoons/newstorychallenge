@@ -9,15 +9,24 @@ const Latest = () => {
       await fetch('https://xkcd.now.sh/?comic=latest')
         .then(res => res.json())
         .then(res => setComic(res))
-        .catch(() => setErrors({ hasErrors: true }));
+        .catch(() => setErrors({ hasError: true }));
     }
 
     fetchData();
   }, []);
 
+  if (hasError) {
+    return (
+      <div>
+        <p>Something went wrong...</p>
+      </div>
+    )
+  }
+
   return ( 
     <div>
-      <img src={comic.img} />
+      <h1>{comic.safe_title}</h1>
+      <img src={comic.img} className="latestImage" alt={comic.title} title={comic.alt} />
     </div>
   );
 }
