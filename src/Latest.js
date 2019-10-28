@@ -1,16 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Latest = () => {
   const [hasError, setErrors] = useState(false);
   const [comic, setComic] = useState({});
-  const [number, setNumber] = useState(2220);
-  const [date, setDate] = useState('10/25/2019');
+  const [number, setNumber] = useState(null);
+  const [date, setDate] = useState('');
+  const isInitial = useRef(true);
 
   useEffect(() => {
-    fetchData(number);
+    if (isInitial.current) {
+      isInitial.current = false;
+      fetchLatest();
+    } else {
+      fetchData(number);
+    }
   }, [number]);
 
-  // Comic fetch function
+  // Comic fetch functions
+  async function fetchLatest() {
+    await fetch('https://xkcd.now.sh/?comic=latest')
+    .then(res => res.json())
+    .then(res => {
+      setComic(res);
+      setDate(res.month + '/' + res.day + '/' + res.year);
+      setNumber(res.num)
+      setErrors(false);
+    })
+    .catch(() => setErrors(true));
+  }
+
   async function fetchData(num) {
     await fetch('https://xkcd.now.sh/?comic=' + num)
       .then(res => res.json())
