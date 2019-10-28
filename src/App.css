@@ -12,7 +12,26 @@ body {
   margin-left: -390px;
 }
 
-button {
+form {
+  margin: 16px 0;
+}
+
+input[type=number] {
+  width: 75px;
+  height: 19px;
+  border: 1.5px solid #6E6E6E;
+  border-radius: 3px;
+  text-align: center;
+  font-family: Lucida,Helvetica,sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+button, input[type=submit] {
   background-color: #6E6E6E;
   background-color: #6E7B91;
   color: #FFF;
@@ -32,7 +51,7 @@ button {
   font-variant: small-caps;
 }
 
-button:hover {
+button:hover, input[type=submit]:hover {
   color: #6E7B91;
   background-color: #FFF;
 }

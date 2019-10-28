@@ -9,6 +9,7 @@ const Latest = () => {
     fetchData(number);
   }, [number]);
 
+  // Comic fetch function
   async function fetchData(num) {
     await fetch('https://xkcd.now.sh/?comic=' + num)
       .then(res => res.json())
@@ -19,6 +20,7 @@ const Latest = () => {
       .catch(() => setErrors(true));
   }
 
+  // Navbar Function
   const changeComic = (num) => {
     if (num < 1 || num > 2220) {
       return;
@@ -26,8 +28,8 @@ const Latest = () => {
     setNumber(num);
   }
 
+  // Error Handling
   let error;
-
   if (hasError) {
     error = 'Something went wrong...'
   }
