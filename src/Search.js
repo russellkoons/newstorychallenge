@@ -4,6 +4,7 @@ const Search = () => {
   const [hasError, setErrors] = useState(false);
   const [comic, setComic] = useState({});
   const [number, setNumber] = useState(null);
+  const [date, setDate] = useState('');
   const isInitial = useRef(true);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const Search = () => {
       .then(res => res.json())
       .then(res => {
         setComic(res);
+        setDate(res.month + '/' + res.day + '/' + res.year);
         setErrors(false);
       })
       .catch(() => setErrors(true));
@@ -68,6 +70,7 @@ const Search = () => {
       </form>
       {nav}
       <h1>{comic.safe_title}</h1>
+      <p>{date}</p>
       <img src={comic.img} className="searchImage" alt={comic.title} title={comic.alt} />
       <span>{error}</span>
     </div>

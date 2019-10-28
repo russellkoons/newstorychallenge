@@ -4,6 +4,7 @@ const Latest = () => {
   const [hasError, setErrors] = useState(false);
   const [comic, setComic] = useState({});
   const [number, setNumber] = useState(2220);
+  const [date, setDate] = useState('10/25/2019');
 
   useEffect(() => {
     fetchData(number);
@@ -15,6 +16,7 @@ const Latest = () => {
       .then(res => res.json())
       .then(res => {
         setComic(res);
+        setDate(res.month + '/' + res.day + '/' + res.year);
         setErrors(false);
       })
       .catch(() => setErrors(true));
@@ -44,6 +46,7 @@ const Latest = () => {
         <li><button onClick={() => changeComic(2220)}>&gt;|</button></li>
       </ul>
       <h1>{comic.safe_title}</h1>
+      <p>{date}</p>
       <img src={comic.img} className="latestImage" alt={comic.title} title={comic.alt} />
       <span>{error}</span>
     </div>
