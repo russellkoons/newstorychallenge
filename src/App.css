@@ -58,3 +58,12 @@ button:hover {
   line-height: 120%;
   vertical-align: top;
 }
+
+ul.comicNav {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}

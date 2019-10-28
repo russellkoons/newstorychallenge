@@ -21,9 +21,16 @@ const Search = () => {
       .catch(() => setErrors({ hasError: true }));
   }
 
+  const changeComic = (num) => {
+    if (num < 1 || num > 2220) {
+      return;
+    }
+    setNumber(num);
+  }
+
   const submitNum = event => {
     event.preventDefault();
-    setNumber(document.getElementsByClassName('searchInput')[0].value);
+    setNumber(parseInt(document.getElementsByClassName('searchInput')[0].value));
   }
 
   let error;
@@ -32,12 +39,27 @@ const Search = () => {
     error = 'Something went wrong...'
   }
 
+  let nav;
+
+  if (number !== null) {
+    nav = (
+      <ul className="comicNav">
+        <li><button onClick={() => changeComic(1)}>|&lt;</button></li>
+        <li><button onClick={() => changeComic(number - 1)}>&lt; Prev</button></li>
+        <li><button onClick={() => changeComic(Math.floor(Math.random() * 2220))}>Random</button></li>
+        <li><button onClick={() => changeComic(number + 1)}>Next &gt;</button></li>
+        <li><button onClick={() => changeComic(2220)}>&gt;|</button></li>
+      </ul>
+    )
+  } 
+
   return (
     <div className="box">
       <form onSubmit={submitNum}>
         <input type="number" min="1" max="2220" className="searchInput" />
         <input type="submit" className="searchSubmit" />
       </form>
+      {nav}
       <h1>{comic.safe_title}</h1>
       <img src={comic.img} className="searchImage" alt={comic.title} title={comic.alt} />
       <span>{error}</span>
