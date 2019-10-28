@@ -12,14 +12,14 @@ function App() {
       <div className="box">
         <img src={Logo} alt="xkcd.com logo" height="83" width="185" />
         <span id="slogan">A webcomic of romance,<br /> sarcasm, math, and language.</span>
-      </div>
-      <div>
-        <Link to="/">
-          <button className="latest">Latest</button>
-        </Link>
-        <Link to="/search">
-          <button className="search">Search</button>
-        </Link>
+        <div>
+          <Link to="/">
+            <button className="latest">Latest</button>
+          </Link>
+          <Link to="/search">
+            <button className="search">Search</button>
+          </Link>
+        </div>
       </div>
       <Route exact path="/" component={Latest} />
       <Route exact path="/search" component={Search} />

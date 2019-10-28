@@ -17,8 +17,11 @@ const Search = () => {
   async function fetchData(num) {
     await fetch('https://xkcd.now.sh/?comic=' + num)
       .then(res => res.json())
-      .then(res => setComic(res))
-      .catch(() => setErrors({ hasError: true }));
+      .then(res => {
+        setComic(res);
+        setErrors(false);
+      })
+      .catch(() => setErrors(true));
   }
 
   const changeComic = (num) => {
@@ -56,7 +59,7 @@ const Search = () => {
   return (
     <div className="box">
       <form onSubmit={submitNum}>
-        <input type="number" min="1" max="2220" className="searchInput" />
+        <input type="number" min="1" max="2220" className="searchInput" required />
         <input type="submit" className="searchSubmit" />
       </form>
       {nav}

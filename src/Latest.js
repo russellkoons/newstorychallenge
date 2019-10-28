@@ -12,8 +12,11 @@ const Latest = () => {
   async function fetchData(num) {
     await fetch('https://xkcd.now.sh/?comic=' + num)
       .then(res => res.json())
-      .then(res => setComic(res))
-      .catch(() => setErrors({ hasError: true }));
+      .then(res => {
+        setComic(res);
+        setErrors(false);
+      })
+      .catch(() => setErrors(true));
   }
 
   const changeComic = (num) => {
