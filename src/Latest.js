@@ -23,7 +23,7 @@ const Latest = () => {
     .then(res => {
       setComic(res);
       setDate(res.month + '/' + res.day + '/' + res.year);
-      setNumber(res.num)
+      setNumber(res.num);
       setErrors(false);
     })
     .catch(() => setErrors(true));
