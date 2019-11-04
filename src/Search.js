@@ -57,7 +57,7 @@ const Search = () => {
         <li><button onClick={() => changeComic(number - 1)}>&lt; Prev</button></li>
         <li><button onClick={() => changeComic(Math.floor(Math.random() * 2223))}>Random</button></li>
         <li><button onClick={() => changeComic(number + 1)}>Next &gt;</button></li>
-        <li><button onClick={() => changeComic(2220)}>&gt;|</button></li>
+        <li><button onClick={() => changeComic(2223)}>&gt;|</button></li>
       </ul>
     )
   } 
