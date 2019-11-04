@@ -43,7 +43,7 @@ const Latest = () => {
 
   // Navbar Function
   const changeComic = (num) => {
-    if (num < 1 || num > 2220) {
+    if (num < 1 || num > 2223) {
       return;
     }
     setNumber(num);
@@ -60,7 +60,7 @@ const Latest = () => {
       <ul className="comicNav">
         <li><button onClick={() => changeComic(1)}>|&lt;</button></li>
         <li><button onClick={() => changeComic(number - 1)}>&lt; Prev</button></li>
-        <li><button onClick={() => changeComic(Math.floor(Math.random() * 2220))}>Random</button></li>
+        <li><button onClick={() => changeComic(Math.floor(Math.random() * 2223))}>Random</button></li>
         <li><button onClick={() => changeComic(number + 1)}>Next &gt;</button></li>
         <li><button onClick={() => changeComic(2220)}>&gt;|</button></li>
       </ul>
