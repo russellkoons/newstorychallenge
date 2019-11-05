@@ -4,6 +4,7 @@ const Latest = () => {
   const [hasError, setErrors] = useState(false);
   const [comic, setComic] = useState({});
   const [number, setNumber] = useState(null);
+  const [latest, setLatest] = useState(null);
   const [date, setDate] = useState('');
   const isInitial = useRef(true);
 
@@ -25,6 +26,7 @@ const Latest = () => {
       setComic(res);
       setDate(res.month + '/' + res.day + '/' + res.year);
       setNumber(res.num);
+      setLatest(res.num);
       setErrors(false);
     })
     .catch(() => setErrors(true));
@@ -43,7 +45,7 @@ const Latest = () => {
 
   // Navbar Function
   const changeComic = (num) => {
-    if (num < 1 || num > 2223) {
+    if (num < 1 || num > latest) {
       return;
     }
     setNumber(num);
@@ -62,7 +64,7 @@ const Latest = () => {
         <li><button onClick={() => changeComic(number - 1)}>&lt; Prev</button></li>
         <li><button onClick={() => changeComic(Math.floor(Math.random() * 2223))}>Random</button></li>
         <li><button onClick={() => changeComic(number + 1)}>Next &gt;</button></li>
-        <li><button onClick={() => changeComic(2223)}>&gt;|</button></li>
+        <li><button onClick={() => changeComic(latest)}>&gt;|</button></li>
       </ul>
       <h1>{comic.safe_title}</h1>
       <p>{date}</p>
