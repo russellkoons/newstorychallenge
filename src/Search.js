@@ -67,7 +67,7 @@ const Search = () => {
       <ul className="comicNav">
         <li><button onClick={() => changeComic(1)}>|&lt;</button></li>
         <li><button onClick={() => changeComic(number - 1)}>&lt; Prev</button></li>
-        <li><button onClick={() => changeComic(Math.floor(Math.random() * 2223))}>Random</button></li>
+        <li><button onClick={() => changeComic(Math.floor(Math.random() * latest))}>Random</button></li>
         <li><button onClick={() => changeComic(number + 1)}>Next &gt;</button></li>
         <li><button onClick={() => changeComic(latest)}>&gt;|</button></li>
       </ul>
