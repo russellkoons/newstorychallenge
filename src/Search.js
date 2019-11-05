@@ -65,7 +65,7 @@ const Search = () => {
   return (
     <div className="box">
       <form onSubmit={submitNum}>
-        <input type="number" min="1" max="2220" className="searchInput" required />
+        <input type="number" min="1" max="2223" className="searchInput" required />
         <input type="submit" className="searchSubmit" />
       </form>
       {nav}
